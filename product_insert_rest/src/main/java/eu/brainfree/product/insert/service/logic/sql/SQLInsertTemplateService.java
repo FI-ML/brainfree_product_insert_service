@@ -48,7 +48,7 @@ public class SQLInsertTemplateService {
         String close = lastStatement? ");" : "),";
 
         return LINE_BREAK.repeat(2)
-                + "/**/"
+                + "/* */"
                 + LINE_BREAK
                 + "("
                 + id + ","

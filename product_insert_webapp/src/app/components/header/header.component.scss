@@ -1,0 +1,40 @@
+.card-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .mat-toolbar {
+    min-width: 380px;
+    width: 97.5%;
+    margin-top: 4%;
+    background-color: WhiteSmoke;
+    box-shadow: 20px 20px 5px grey;
+    border-radius: 1rem;
+
+
+    .toolbar-container {
+      display: flex;
+      flex-flow: row;
+      justify-content: space-around;
+      flex-grow: 2;
+
+      .name {
+        font-size: 30px;
+      }
+      .icon-container{
+        margin-top: .3rem;
+
+        .mat-icon{
+          font-size: 25px;
+        }
+      }
+    }
+  }
+}
+
+.card-container {
+  height: 100%;
+  margin-bottom: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+}

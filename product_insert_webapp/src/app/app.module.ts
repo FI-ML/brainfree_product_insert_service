@@ -23,13 +23,16 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatTooltipModule} from "@angular/material/tooltip";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import { HeaderComponent } from './components/header/header.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
     AppComponent,
     DownloadDialogComponent,
     InfoDialogComponent,
-    FileGeneratorCardComponent
+    FileGeneratorCardComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ import {MatSlideToggleModule} from "@angular/material/slide-toggle";
     MatDialogModule,
     MatSlideToggleModule,
     MatProgressSpinnerModule,
+    MatToolbarModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

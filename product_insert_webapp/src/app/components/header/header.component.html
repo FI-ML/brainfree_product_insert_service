@@ -1,0 +1,23 @@
+<div class="card-container">
+  <mat-toolbar>
+    <div class="toolbar-container">
+      <div>
+        <p class="name">File Generator</p>
+      </div>
+      <div class="slider-container">
+        <mat-slide-toggle
+          [checked]="true"
+          (change)="setWithSQL()"
+          style="">Im SQL Format?
+        </mat-slide-toggle>
+      </div>
+      <div class="icon-container">
+        <mat-icon class="info-icon" (click)="openInfoDialog()">info</mat-icon>
+      </div>
+    </div>
+  </mat-toolbar>
+  <div>
+    <app-file-generator-card [withSQL]="withSQL" class="generator-card-container"></app-file-generator-card>
+  </div>
+
+</div>

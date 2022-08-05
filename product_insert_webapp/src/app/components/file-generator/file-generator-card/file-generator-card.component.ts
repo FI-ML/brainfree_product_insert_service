@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {InfoDialogComponent} from "../../dialog/info-dialog/info-dialog.component";
@@ -17,19 +17,18 @@ import {TemplateTO} from "../../../model/templateTO";
 })
 export class FileGeneratorCardComponent implements OnInit {
 
+  @Input() withSQL!: boolean;
   title = 'file-generator-ui';
   formGroupFile !: FormGroup;
   formGroupTemplate !: FormGroup;
   fileTemplate!: TemplateTO;
   template !: TemplateValueTOS;
-  fileStatus!: FileStatusTO;
   filteredCategories!: Observable<string[]> | undefined;
   submitted = false;
   counter !: number;
 
   constructor(private readonly formBuilder: FormBuilder,
               private readonly categoryService: CategoryService,
-              private readonly backendService: FileGeneratorBackendService,
               public dialog: MatDialog
   ) {
     this.counter = 0;
@@ -104,14 +103,14 @@ export class FileGeneratorCardComponent implements OnInit {
 
 
   collectTamplateValues(): void {
-    let autor = this.controlAutor.value;
+
     let title = this.controlTitle.value;
     let category = this.controlCategory.value;
     let description = this.controlDescription.value;
-    let price = this.controlPrice.value.replace(',' , '.');
+    let price = this.controlPrice.value;
     let priceAccording = this.controlPriceAccording.value;
 
-    this.fileTemplate.autor = autor;
+    this.fileTemplate.autor = this.withSQL ? '' : this.controlAutor.value;
 
     let template = {
       title: title,
@@ -120,6 +119,7 @@ export class FileGeneratorCardComponent implements OnInit {
       price: price,
       priceAccording: priceAccording
     };
+
 
     this.fileTemplate.templateValueTOS.push(template);
     this.refresh();
@@ -138,12 +138,14 @@ export class FileGeneratorCardComponent implements OnInit {
   }
 
   createTemplate() {
+    this.fileTemplate.withSQL = this.withSQL;
     this.openDownLoadDialog();
-    /*  this.resetFileTemplateArray();*/
   }
 
-  isFormsValid(): boolean {
-    return this.controlAutor.valid
+  isFormValid(): boolean {
+
+    let isAutorValid = this.withSQL ? true : this.controlAutor.valid;
+    return isAutorValid
       && this.controlTitle.valid
       && this.controlCategory.valid
       && this.controlDescription.valid
@@ -167,14 +169,8 @@ export class FileGeneratorCardComponent implements OnInit {
     };
     const dialogRef = this.dialog.open(DownloadDialogComponent, dialogConfig);
 
-    dialogRef.afterClosed().subscribe(()=> this.resetFileTemplateArray());
+    dialogRef.afterClosed().subscribe(() => this.resetFileTemplateArray());
   }
-
-
-  setWithSQL() {
-    this.fileTemplate.withSQL = !this.fileTemplate.withSQL;
-  }
-
 
   private initFile = (): void => {
     this.fileTemplate = {
