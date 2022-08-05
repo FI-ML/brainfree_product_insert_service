@@ -1,0 +1,89 @@
+<mat-card>
+  <div class="headline-container">
+    <mat-card-title>File Generator</mat-card-title>
+    <mat-icon class="info-icon" (click)="openInfoDialog()">info</mat-icon>
+  </div>
+  <mat-card-content>
+    <div>
+      <form [formGroup]="formGroupFile">
+        <div class="first-form-field">
+          <mat-form-field appearance="outline">
+            <mat-label>Autor</mat-label>
+            <input matInput type="text" placeholder="" [formControl]="controlAutor">
+            <mat-hint align="end">min. 4 Zeichen</mat-hint>
+          </mat-form-field>
+        </div>
+      </form>
+      <form [formGroup]="formGroupTemplate">
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Produktname</mat-label>
+            <textarea matInput type="text" placeholder="" [formControl]="controlTitle">
+                 </textarea>
+            <mat-hint align="end">min.2 Zeichen</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Kategorie</mat-label>
+            <input matInput type="text"
+                   [formControl]="controlCategory"
+                   [matAutocomplete]="auto">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let cat of filteredCategories | async" [value]="cat">
+                {{cat}}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-hint align="end">Hat eine Suchfunktion</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Beschreibung</mat-label>
+            <textarea matInput type="text" placeholder="" [formControl]="controlDescription">
+              </textarea>
+            <mat-hint align="end">min. 10 Zeichen</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Preis</mat-label>
+            <input matInput type="number" placeholder="1.0" step="0.01" [formControl]="controlPrice">
+            <mat-hint align="end">nur Zahlen</mat-hint>
+          </mat-form-field>
+        </div>
+        <div>
+          <mat-form-field appearance="outline">
+            <mat-label>Preis nach</mat-label>
+            <input matInput type="text" placeholder="" [formControl]="controlPriceAccording">
+            <mat-hint align="end">z.B. 1 Stk. / 1 KG</mat-hint>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </mat-card-content>
+  <div class="mat-divider-container">
+    <mat-divider></mat-divider>
+  </div>
+  <mat-card-actions>
+    <button mat-fab class="btn-left"
+            matTooltip="Product Template erzeugen"
+            matTooltipPosition="above"
+            [matBadge]="counter"
+            [disabled]="!isFormsValid()"
+            (click)="collectTamplateValues()">
+      <mat-icon>add</mat-icon>
+    </button>
+    <button mat-fab class="btn-actions btn-right" *ngIf="submitted"
+            (click)="createTemplate()">
+      <mat-icon>check</mat-icon>
+    </button>
+    <div class="slider-container"  *ngIf="submitted">
+      <mat-slide-toggle
+        [checked]="true"
+        (change)="setWithSQL()"
+        style="">Mit SQL ?</mat-slide-toggle>
+    </div>
+  </mat-card-actions>
+</mat-card>
+

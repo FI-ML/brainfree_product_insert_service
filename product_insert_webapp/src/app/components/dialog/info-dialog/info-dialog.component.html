@@ -1,0 +1,21 @@
+<div class="dialog">
+  <div class="headline-container">
+    <div>
+      <h1 *ngIf="withSQL" mat-dialog-title>SQL Beispiel</h1>
+      <h1 *ngIf="!withSQL" mat-dialog-title>XML Beispiel</h1>
+    </div>
+    <div class="btn-container">
+      <mat-button style="background-color: transparent" mat-button mat-dialog-close="">
+        <mat-icon style="color: red">close</mat-icon>
+      </mat-button>
+    </div>
+  </div>
+  <div mat-dialog-content>
+    <div *ngIf="withSQL">
+      <img src="../../../../assets/sql-template.png" alt="shows a xml file">
+    </div>
+    <div *ngIf="!withSQL">
+      <img src="../../../../assets/xml-template.png" alt="shows a xml file">
+    </div>
+  </div>
+</div>
