@@ -1,4 +1,4 @@
 export interface Language{
   value:string;
-  viewValue: string;
+  abbreviation: string;
 }
