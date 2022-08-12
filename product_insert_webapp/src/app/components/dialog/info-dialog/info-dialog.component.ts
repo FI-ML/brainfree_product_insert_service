@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
-import {FileGeneratorCardComponent} from "../../file-generator/file-generator-card/file-generator-card.component";
+import {FileGeneratorCardComponent} from "../../file-generator-card/file-generator-card.component";
 
 @Component({
   selector: 'app-info-dialog',

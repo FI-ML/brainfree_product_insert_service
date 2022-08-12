@@ -4,6 +4,10 @@
   background-color: WhiteSmoke;
   box-shadow: 20px 20px 5px grey;
   border-radius: 1rem;
+
+  .mat-card-header{
+    float: right;
+  }
 }
 
 .headline-container{

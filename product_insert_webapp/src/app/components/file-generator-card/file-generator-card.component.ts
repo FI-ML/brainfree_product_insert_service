@@ -1,14 +1,14 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
-import {InfoDialogComponent} from "../../dialog/info-dialog/info-dialog.component";
-import {DownloadDialogComponent} from "../../dialog/download-dialog/download-dialog.component";
-import {FileGeneratorBackendService} from "../../../services/file-generator-backend.service";
-import {CategoryService} from "../../../services/category.service";
+import {InfoDialogComponent} from "../dialog/info-dialog/info-dialog.component";
+import {DownloadDialogComponent} from "../dialog/download-dialog/download-dialog.component";
+import {FileGeneratorBackendService} from "../../services/file-generator-backend.service";
+import {CategoryService} from "../../services/category.service";
 import {map, Observable, startWith} from "rxjs";
-import {FileStatusTO} from "../../../model/fileStatusTO";
-import {TemplateValueTOS} from "../../../model/templateValueTOS";
-import {TemplateTO} from "../../../model/templateTO";
+import {FileStatusTO} from "../../model/fileStatusTO";
+import {TemplateValueTOS} from "../../model/templateValueTOS";
+import {TemplateTO} from "../../model/templateTO";
 
 @Component({
   selector: 'app-file-generator-card',
@@ -156,7 +156,7 @@ export class FileGeneratorCardComponent implements OnInit {
   openInfoDialog(): void {
     const dialogConfig = new MatDialogConfig();
     dialogConfig.data = {
-      withSQL: this.fileTemplate.withSQL
+      withSQL: this.withSQL
     };
 
     this.dialog.open(InfoDialogComponent, dialogConfig);

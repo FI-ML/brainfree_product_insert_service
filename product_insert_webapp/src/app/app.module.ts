@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DownloadDialogComponent } from './components/dialog/download-dialog/download-dialog.component';
 import { InfoDialogComponent } from './components/dialog/info-dialog/info-dialog.component';
-import { FileGeneratorCardComponent } from './components/file-generator/file-generator-card/file-generator-card.component';
+import { FileGeneratorCardComponent } from './components/file-generator-card/file-generator-card.component';
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCardModule} from "@angular/material/card";
 import {MatIconModule} from "@angular/material/icon";
@@ -25,6 +25,7 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatSlideToggleModule} from "@angular/material/slide-toggle";
 import { HeaderComponent } from './components/header/header.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import {MatMenuModule} from "@angular/material/menu";
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatSlideToggleModule,
     MatProgressSpinnerModule,
     MatToolbarModule,
+    MatMenuModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -21,12 +21,28 @@
       .name {
         font-size: 30px;
       }
-      .icon-container{
-        margin-top: .3rem;
+    }
+  }
 
-        .mat-icon{
-          font-size: 25px;
-        }
+  .mat-toolbar-row {
+    width: 30%;
+    margin-top: 1%;
+    background-color: WhiteSmoke;
+    box-shadow: 20px 20px 5px grey;
+    border-radius: 1rem;
+
+    .settings{
+      display: flex;
+      flex-flow: column;
+      justify-content: space-around;
+
+      .slider-container{
+        margin-top: 2%;
+        width: 100%;
+        padding-left: 12%;
+      }
+      .language-container{
+        margin-top: 2%;
       }
     }
   }
@@ -40,6 +56,9 @@
   background-color: green ;
 }
 
+::ng-deep .mat-tooltip {
+  font-size: 1rem;
+}
 
 .card-container {
   height: 100%;

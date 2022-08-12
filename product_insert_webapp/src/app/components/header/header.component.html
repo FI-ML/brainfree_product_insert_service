@@ -1,9 +1,20 @@
 <div class="card-container">
+
   <mat-toolbar>
     <div class="toolbar-container">
-      <div>
-        <p class="name">File Generator</p>
-      </div>
+      <span class="name">File generator</span>
+    </div>
+    <div>
+      <button mat-icon-button aria-label="settings" (click)="openOrCloeMenu()"
+              matTooltip="open settings"
+              matTooltipPosition="above">
+        <mat-icon>settings</mat-icon>
+      </button>
+    </div>
+  </mat-toolbar>
+
+  <mat-toolbar-row *ngIf="openMenu">
+    <div class="settings">
       <div class="slider-container">
         <mat-slide-toggle
           [checked]="true"
@@ -11,9 +22,31 @@
           style="">Im SQL Format?
         </mat-slide-toggle>
       </div>
-      <div class="icon-container">
-        <mat-icon class="info-icon" (click)="openInfoDialog()">info</mat-icon>
+      <div class="language-container">
+        <button mat-button [matMenuTriggerFor]="langauge">{{selectedLanguage.viewValue}}</button>
+        <mat-menu #langauge="matMenu">
+          <div *ngFor="let lang of languages; let i = index">
+            <button mat-menu-item (click)="setSelectedLanguage(i)">{{lang.viewValue}}</button>
+          </div>
+        </mat-menu>
       </div>
+    </div>
+  </mat-toolbar-row>
+  <div>
+    <app-file-generator-card [withSQL]="withSQL" class="generator-card-container"></app-file-generator-card>
+  </div>
+
+</div>
+
+
+<!--
+<div class="card-container">
+  <mat-toolbar>
+    <div class="toolbar-container">
+      <div>
+        <p class="name">File Generator</p>
+      </div>
+
     </div>
   </mat-toolbar>
   <div>
@@ -21,3 +54,4 @@
   </div>
 
 </div>
+-->

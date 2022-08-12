@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {FileGeneratorBackendService} from "../../../services/file-generator-backend.service";
-import {FileGeneratorCardComponent} from "../../file-generator/file-generator-card/file-generator-card.component";
+import {FileGeneratorCardComponent} from "../../file-generator-card/file-generator-card.component";
 import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 import {FileStatusTO} from "../../../model/fileStatusTO";
 import {TemplateTO} from "../../../model/templateTO";
