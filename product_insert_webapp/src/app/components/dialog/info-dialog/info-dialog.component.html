@@ -1,8 +1,8 @@
 <div class="dialog">
   <div class="headline-container">
     <div>
-      <h1 *ngIf="withSQL" mat-dialog-title>SQL Beispiel</h1>
-      <h1 *ngIf="!withSQL" mat-dialog-title>XML Beispiel</h1>
+      <h1 *ngIf="withSQL" mat-dialog-title>SQL {{ 'HOME.EXAMPLE' |translate }}</h1>
+      <h1 *ngIf="!withSQL" mat-dialog-title>XML {{ 'HOME.EXAMPLE' |translate }}</h1>
     </div>
     <div class="btn-container">
       <mat-button style="background-color: transparent" mat-button mat-dialog-close="">

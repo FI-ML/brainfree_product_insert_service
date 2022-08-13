@@ -1,0 +1,42 @@
+{
+  "HOME": {
+    "HEADLINE": "Datei Generator",
+    "LANGUAGE": "SPRACHE",
+    "WITH-SQL": "Mit SQL?",
+    "SETTINGS": "Einstellungen",
+    "EXAMPLE": "Beispiel",
+    "PRODUCT-NAME": "Produktname",
+    "CATEGORY": "Kategorie",
+    "DESCRIPTION": "Beschreibung",
+    "PRICE": "Preis",
+    "PRICE-ACCORDING": "Preis nach",
+    "ADD-PRODUCT": "Produkt hinzufügen",
+
+    "MIN": "min.",
+    "CHARACTERS": "Zeichen",
+    "SEARCH-FUNCTION": "Hat eine Suchfunktion",
+    "NUMBERS-ONLY": "Nur zahlen erlaubt",
+    "PER": "pro 100g",
+
+    "LOAD-INFO": "Einen kurzen moment",
+    "DOWNLOAD-INFO": "Ihr Datei wird erzeugt und Sie können diese gleich herunterladen",
+
+    "BABY-PRODUCTS": "Baby Produkte",
+    "BEAUTY": "Kosmetik",
+    "BEER, WINE AND LIQUOR": "Bier, Weine und Likör",
+    "BOOK": "Buch",
+    "CAR AND MOTORBIKE": "Aut und Motorrad",
+    "CLOTHING": "Klamotten",
+    "COMPUTER AND ACCESSORIES": "Computer und Zubehör",
+    "DRUGSTORE AND BODY CARE": "Drogerie Artikel",
+    "ELECTRONIC": "Elektronik",
+    "FOOD": "Lebensmittel",
+    "HOME AND GARDEN": "Haus und Garten",
+    "HOME IMPROVEMENT STORE": "Baumarkt",
+    "HYGIENE": "Hygiene",
+    "LIGHTING": "Beleuchtung",
+    "MUSIC": "Musik",
+    "OFFICE": "Büro",
+    "TOYS AND CHILDREN PRODUCTS": "Spielzeug"
+  }
+}

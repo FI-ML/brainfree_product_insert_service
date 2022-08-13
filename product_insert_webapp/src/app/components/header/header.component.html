@@ -2,11 +2,11 @@
 
   <mat-toolbar>
     <div class="toolbar-container">
-      <span class="name">File generator</span>
+      <span class="name">{{ 'HOME.HEADLINE' | translate }}</span>
     </div>
     <div>
-      <button mat-icon-button aria-label="settings" (click)="openOrCloeMenu()"
-              matTooltip="open settings"
+      <button mat-icon-button aria-label="settings" (click)="openOrCloseMenu()"
+              matTooltip="{{ 'HOME.SETTINGS' | translate }}"
               matTooltipPosition="above">
         <mat-icon>settings</mat-icon>
       </button>
@@ -19,14 +19,14 @@
         <mat-slide-toggle
           [checked]="true"
           (change)="setWithSQL()"
-          style="">Im SQL Format?
+          style="">{{ 'HOME.WITH-SQL' | translate }}
         </mat-slide-toggle>
       </div>
       <div class="language-container">
         <button mat-button [matMenuTriggerFor]="langauge">{{selectedLanguage.value}}</button>
         <mat-menu #langauge="matMenu">
           <div *ngFor="let lang of languages; let i = index">
-            <button mat-menu-item (click)="setSelectedLanguage(i)">{{lang.value}} - {{lang.abbreviation}}</button>
+            <button mat-menu-item (click)="onLanguageChange(i)">{{lang.value}} - {{lang.abbreviation}}</button>
           </div>
         </mat-menu>
       </div>
@@ -35,23 +35,4 @@
   <div>
     <app-file-generator-card [withSQL]="withSQL" class="generator-card-container"></app-file-generator-card>
   </div>
-
 </div>
-
-
-<!--
-<div class="card-container">
-  <mat-toolbar>
-    <div class="toolbar-container">
-      <div>
-        <p class="name">File Generator</p>
-      </div>
-
-    </div>
-  </mat-toolbar>
-  <div>
-    <app-file-generator-card [withSQL]="withSQL" class="generator-card-container"></app-file-generator-card>
-  </div>
-
-</div>
--->

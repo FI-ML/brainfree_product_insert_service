@@ -1,0 +1,42 @@
+{
+  "HOME": {
+    "HEADLINE": "File Generator",
+    "LANGUAGE": "Language",
+    "WITH-SQL": "With SQL?",
+    "SETTINGS": "Settings",
+    "EXAMPLE": "Example",
+    "PRODUCT-NAME": "Product name",
+    "CATEGORY": "Category",
+    "DESCRIPTION": "Description",
+    "PRICE": "Price",
+    "PRICE-ACCORDING": "Price according",
+    "ADD-PRODUCT": "Add Product",
+
+    "MIN": "min.",
+    "CHARACTERS": "Letter",
+    "SEARCH-FUNCTION": "have search funktion",
+    "NUMBERS-ONLY": "Numbers only",
+    "PER": "per 100g",
+
+    "LOAD-INFO": "One moment pleace",
+    "DOWNLOAD-INFO": "Your file will be created and you can download it right away",
+
+    "BABY-PRODUCTS": "Baby Products",
+    "BEAUTY": "Beauty",
+    "BEER, WINE AND LIQUOR": "Beer, Wine and Liquor",
+    "BOOK": "Book",
+    "CAR AND MOTORBIKE": "Car and Motorbike",
+    "CLOTHING": "Clothing",
+    "COMPUTER AND ACCESSORIES": "Computer and Accessories",
+    "DRUGSTORE AND BODY CARE": "Drugstore and Body Care",
+    "ELECTRONIC": "Electronic",
+    "FOOD": "Food",
+    "HOME AND GARDEN": "Home and Garden",
+    "HOME IMPROVEMENT STORE": "Home Improvement Store",
+    "HYGIENE": "Hygiene",
+    "LIGHTING": "Lighting",
+    "MUSIC": "Music",
+    "OFFICE": "Office",
+    "TOYS AND CHILDREN PRODUCTS": "Toys and Children Products"
+  }
+}

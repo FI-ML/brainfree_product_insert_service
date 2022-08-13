@@ -12,7 +12,7 @@
             <mat-form-field appearance="outline">
               <mat-label>Autor</mat-label>
               <input matInput type="text" placeholder="" [formControl]="controlAutor">
-              <mat-hint align="end">min. 4 Zeichen</mat-hint>
+              <mat-hint align="end">{{'HOME.MIN' | translate}} 4 {{ 'HOME.CHARAKTERS' | translate }}</mat-hint>
             </mat-form-field>
           </div>
         </form>
@@ -20,45 +20,47 @@
       <form [formGroup]="formGroupTemplate">
         <div>
           <mat-form-field appearance="outline">
-            <mat-label>Produktname</mat-label>
+            <mat-label>{{'HOME.PRODUCT-NAME' | translate}}</mat-label>
             <textarea matInput type="text" placeholder="" [formControl]="controlTitle">
                  </textarea>
-            <mat-hint align="end">min.2 Zeichen</mat-hint>
+            <mat-hint align="end">{{'HOME.MIN' | translate}} 2 {{ 'HOME.CHARACTERS' | translate }}</mat-hint>
           </mat-form-field>
         </div>
         <div>
+
+          <!-- TODO: WRITE LOGIC FOR TRANSLATE CATEGORIES-->
           <mat-form-field appearance="outline">
-            <mat-label>Kategorie</mat-label>
+            <mat-label>{{'HOME.CATEGORY' | translate}}</mat-label>
             <input matInput type="text"
                    [formControl]="controlCategory"
                    [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let cat of filteredCategories | async" [value]="cat">
-                {{cat}}
+                {{'HOME.'+cat.toUpperCase() | translate}}
               </mat-option>
             </mat-autocomplete>
-            <mat-hint align="end">Hat eine Suchfunktion</mat-hint>
+            <mat-hint align="end"> {{'HOME.SEARCH-FUNCTION' | translate}}</mat-hint>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline">
-            <mat-label>Beschreibung</mat-label>
+            <mat-label>{{'HOME.DESCRIPTION' | translate}}</mat-label>
             <textarea matInput type="text" placeholder="" [formControl]="controlDescription">
               </textarea>
-            <mat-hint align="end">min. 10 Zeichen</mat-hint>
+            <mat-hint align="end">{{'HOME.MIN' | translate}} 10 {{ 'HOME.CHARACTERS' | translate }}</mat-hint>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline">
-            <mat-label>Preis</mat-label>
+            <mat-label>{{'HOME.PRICE' | translate}}</mat-label>
             <input matInput type="number" placeholder="1.00" step="0.01" [formControl]="controlPrice">
-            <mat-hint align="end">nur Zahlen</mat-hint>
+            <mat-hint align="end">{{'HOME.NUMBERS-ONLY' | translate}}</mat-hint>
           </mat-form-field>
         </div>
         <div>
           <mat-form-field appearance="outline">
-            <mat-label>Preis nach</mat-label>
-            <input matInput type="text" placeholder="pro 100g" [formControl]="controlPriceAccording">
+            <mat-label>{{'HOME.PRICE-ACCORDING' | translate}}</mat-label>
+            <input matInput type="text" placeholder="{{'HOME.PER' | translate}}" [formControl]="controlPriceAccording">
           </mat-form-field>
         </div>
       </form>
@@ -69,7 +71,7 @@
   </div>
   <mat-card-actions>
     <button mat-fab class="btn-left"
-            matTooltip="Product Template erzeugen"
+            matTooltip="{{'HOME.ADD-PRODUCT' | translate}}"
             matTooltipPosition="above"
             [matBadge]="counter"
             [disabled]="!isFormValid()"
