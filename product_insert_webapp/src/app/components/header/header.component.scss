@@ -26,6 +26,7 @@
 
   .mat-toolbar-row {
     width: 30%;
+    height: 4%;
     margin-top: 1%;
     background-color: WhiteSmoke;
     box-shadow: 20px 20px 5px grey;
@@ -46,6 +47,22 @@
       }
     }
   }
+}
+
+.language{
+  width: 170px;
+  display: flex;
+  flex-direction: inherit;
+}
+
+img{
+  margin-top: .5rem;
+  margin-bottom: 1rem;
+  margin-left: .5rem;
+  width: auto;
+  height: 30px;
+  background-color: transparent;
+
 }
 
 :host ::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {

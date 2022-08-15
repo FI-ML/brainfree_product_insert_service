@@ -23,10 +23,18 @@
         </mat-slide-toggle>
       </div>
       <div class="language-container">
-        <button mat-button [matMenuTriggerFor]="langauge">{{selectedLanguage.value}}</button>
+        <div class="language">
+          <img *ngIf="isGermany" src="{{selectedLanguage.imgPath}}" alt="shows germany flag">
+          <img *ngIf="!isGermany" src="{{selectedLanguage.imgPath}}" alt="shows germany flag">
+          <button mat-button [matMenuTriggerFor]="langauge">{{selectedLanguage.value}}</button>
+        </div>
         <mat-menu #langauge="matMenu">
           <div *ngFor="let lang of languages; let i = index">
-            <button mat-menu-item (click)="onLanguageChange(i)">{{lang.value}} - {{lang.abbreviation}}</button>
+            <div class="language">
+              <img *ngIf="isGermany" src="{{lang.imgPath}}" alt="shows germany flag">
+              <img *ngIf="!isGermany" src="{{lang.imgPath}}" alt="shows germany flag">
+              <button mat-menu-item (click)="onLanguageChange(i)">{{lang.value}} - {{lang.abbreviation}}</button>
+            </div>
           </div>
         </mat-menu>
       </div>

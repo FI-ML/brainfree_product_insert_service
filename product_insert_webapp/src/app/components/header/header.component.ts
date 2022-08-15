@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit {
   languages!: Language[];
   selectedLanguage!: Language;
   openMenu = false;
-
+  isGermany: boolean = true;
 
   constructor
   (
@@ -46,6 +46,8 @@ export class HeaderComponent implements OnInit {
   onLanguageChange(index: number): void {
     this.selectedLanguage = this.languages[index];
     this.translate.use(this.selectedLanguage.abbreviation.toLowerCase());
+
+    this.isGermany = this.selectedLanguage.abbreviation === 'de';
   }
 
 

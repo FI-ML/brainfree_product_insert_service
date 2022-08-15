@@ -2,11 +2,7 @@
 
 ### Description
 
-Create files needed for product insertion instructions. The files are created as SQL files or as XML files for Liquibase.
-
-The SQL files are preferred because Liquibase was my first idea.
-
-It serves as a small test project that will be of great use later.
+Generate files depending on the use case, currently you can generate product insert xml files for Liquibase or native sql files.
 
 ### Technologies
 
@@ -18,5 +14,4 @@ It serves as a small test project that will be of great use later.
 
 ### future 
 
-* Angular translation for the category is implemented.
-* logic for Git pull requests
+* generate translate json e.g. (de.json or en.json)

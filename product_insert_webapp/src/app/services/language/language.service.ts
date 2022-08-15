@@ -11,8 +11,8 @@ export class LanguageService {
 
   public get languages(): Language[] {
     return [
-      {value: 'Deutsch', abbreviation: 'DE'},
-      {value: 'English', abbreviation: 'EN'}
+      {value: 'Deutsch', abbreviation: 'DE', imgPath: '../../assets/country/germany.png'},
+      {value: 'English', abbreviation: 'EN', imgPath: '../../assets/country/england.png'}
     ];
   }
 }
