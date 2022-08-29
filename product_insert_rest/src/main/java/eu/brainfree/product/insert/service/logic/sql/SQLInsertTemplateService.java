@@ -29,8 +29,8 @@ public class SQLInsertTemplateService {
 
     public String getInsertCommand() {
         return """
-                INSERT INTO products (id, category, created_date, last_modified_date, 
-                description, name, price, price_according, article_number) 
+                INSERT INTO public.products (id, name, description, price,
+                 price_according, article_number, category, created_date, last_modified_date)                                                         
                 \n
                 VALUES
                 """;
@@ -40,7 +40,7 @@ public class SQLInsertTemplateService {
         String id = insertService.getUUIDAsString();
         String articleNumber = insertService.getGeneratedArticleNumber();
         String category = template.getCategory();
-        String createdAt = LocalDateTime.now(ZONE).format(DateTimeFormatter.ISO_LOCAL_DATE_TIME);
+        String createdAt = getFormattedDate();
         String description = template.getDescription();
         String name = template.getTitle();
         String price = template.getPrice();
@@ -48,20 +48,32 @@ public class SQLInsertTemplateService {
         String close = lastStatement? ");" : "),";
 
         return LINE_BREAK.repeat(2)
-                + "/* */"
+                + "/**/"
                 + LINE_BREAK
                 + "("
-                + id + ","
-                + category + ","
-                + createdAt + ","
-                + "null" + ","
+                + inSqlSyntax(id) + ","
+                + inSqlSyntax(name) + ","
                 + LINE_BREAK
-                + description + ","
+                + inSqlSyntax(description) + ","
                 + LINE_BREAK
-                + name + ","
                 + price + ","
-                + priceAccording + ","
-                + articleNumber
+                + inSqlSyntax(priceAccording) + ","
+                + inSqlSyntax(articleNumber) + ","
+                + inSqlSyntax(category) + ","
+                + inSqlSyntax(createdAt) + ","
+                + "null"
                 + close;
+    }
+
+    private String getFormattedDate() {
+       final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return LocalDateTime
+                .now(ZONE)
+                .format(formatter);
+    }
+
+
+    private String inSqlSyntax(String value){
+        return String.format("%s%s%s", "'",value,"'");
     }
 }

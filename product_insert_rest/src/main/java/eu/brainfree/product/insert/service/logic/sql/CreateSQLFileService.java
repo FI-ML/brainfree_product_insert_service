@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static eu.brainfree.product.insert.service.logic.utils.FileUtils.FILENAME;
@@ -33,26 +34,31 @@ public class CreateSQLFileService {
 
     private final SQLInsertTemplateService sqlInsertTemplateService;
 
-    public FileStatusTO createFileAndGetStatus(TemplateTO to)  {
+    private List<String> adresses = new ArrayList<>();
+
+    public FileStatusTO createFileAndGetStatus(TemplateTO to) {
 
         FileStatusTO status = new FileStatusTO();
         File file = new File(UPLOAD_DIRECTORY + File.separator + FILENAME + SQL_FILETYPE);
         StringBuilder template = new StringBuilder();
-        if(file.exists()){
+        if (file.exists()) {
             template.append(getFileTemplate(file));
-        }else {
+        } else {
             template.append(sqlInsertTemplateService.getInsertCommand());
         }
 
-        List<TemplateValueTO> values =  to.getTemplateValueTOS();
+        List<TemplateValueTO> values = to.getTemplateValueTOS();
 
-        TemplateValueTO value =  values.get( to.getTemplateValueTOS().size() - 1);
+
+        int lastIndex = values.size() - 1;
 
         values.forEach(x -> {
-            if(x == value){
-                template.append(sqlInsertTemplateService.getInsertValuesTemplate(x, true));
-            }else {
+            int index = values.indexOf(x);
+            if (index < lastIndex) {
                 template.append(sqlInsertTemplateService.getInsertValuesTemplate(x, false));
+
+            } else {
+                template.append(sqlInsertTemplateService.getInsertValuesTemplate(x, true));
             }
         });
 
@@ -62,10 +68,10 @@ public class CreateSQLFileService {
             LOGGER.error("Can't write file", e.getMessage());
         }
 
-        if(file.exists()){
+        if (file.exists()) {
             LOGGER.info("FILE PATH: " + file.getAbsolutePath());
             status.setStatus("SQL FILE WAS CREATED");
-        }else {
+        } else {
             status.setStatus("SQL FILE ISN'T CREATED");
         }
 
@@ -79,8 +85,8 @@ public class CreateSQLFileService {
         }
         try {
             String txt = FileUtils.readFileToString(file, "UTF-8");
-            int end = txt.length() - 1;
-            txt = txt.substring(0, end);
+            int end = txt.length();
+            txt = txt.substring(0, end) + ",";
             return txt;
 
         } catch (IOException e) {
