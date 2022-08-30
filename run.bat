@@ -1,6 +1,6 @@
 start "" http://localhost:8090
 
-cd file-generator-app\target
+cd product_insert_rest\target
 java -jar product-insert.jar
 
 
