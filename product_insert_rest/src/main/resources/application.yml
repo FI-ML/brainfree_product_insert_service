@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: xml-generator
+    name: sql-generator
   main:
     banner-mode: off
 
