@@ -55,7 +55,6 @@ export class DownloadDialogComponent implements OnInit {
         a.download = 'insert-product' + fileType;
         a.href = window.URL.createObjectURL(blob);
         a.click();
-
         this.dialogRef.close();
       })
     }
@@ -64,5 +63,4 @@ export class DownloadDialogComponent implements OnInit {
   private checkIsFileCreated() {
     return this.fileStatus.status === 'SQL FILE WAS CREATED' || this.fileStatus.status === 'XML FILE WAS CREATED';
   }
-
 }

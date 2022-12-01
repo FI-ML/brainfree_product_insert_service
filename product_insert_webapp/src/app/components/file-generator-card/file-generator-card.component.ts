@@ -3,10 +3,8 @@ import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {InfoDialogComponent} from "../dialog/info-dialog/info-dialog.component";
 import {DownloadDialogComponent} from "../dialog/download-dialog/download-dialog.component";
-import {FileGeneratorBackendService} from "../../services/file-generator-backend.service";
 import {CategoryService} from "../../services/category.service";
 import {map, Observable, startWith} from "rxjs";
-import {FileStatusTO} from "../../model/fileStatusTO";
 import {TemplateValueTOS} from "../../model/templateValueTOS";
 import {TemplateTO} from "../../model/templateTO";
 
@@ -216,5 +214,4 @@ export class FileGeneratorCardComponent implements OnInit {
     this.fileTemplate.templateValueTOS = [];
     this.counter = 0;
   }
-
 }
