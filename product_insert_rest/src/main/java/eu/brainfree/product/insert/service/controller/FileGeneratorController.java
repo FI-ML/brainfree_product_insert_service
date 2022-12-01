@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -28,7 +27,7 @@ import java.io.InputStream;
 
 @RestController
 @RequiredArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200","https://insert.brainfree.eu","https://brainfree.eu/*"})
 @RequestMapping(path = "/generator/", produces = MediaType.APPLICATION_JSON_VALUE)
 public class FileGeneratorController {
 

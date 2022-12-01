@@ -1,0 +1,8 @@
+version: "3.8"
+services:
+  brainfree-product-insert-service:
+    image: ghcr.io/fi-ml/brainfree_product_insert_service:sha-a906312
+    container_name: brainfree-product-insert-service
+    restart: on-failure
+    ports:
+      - "8090:8090"
