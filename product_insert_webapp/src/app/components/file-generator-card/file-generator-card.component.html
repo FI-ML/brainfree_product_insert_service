@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>
     <div class="icon-container">
-      <mat-icon class="info-icon" (click)="openInfoDialog()">info</mat-icon>
+      <img class="info-icon" src="./assets/icons/info.svg" alt="info-svg" (click)="openInfoDialog()"/>
     </div>
   </mat-card-header>
   <mat-card-content>
@@ -75,7 +75,7 @@
             [matBadge]="counter"
             [disabled]="!isFormValid()"
             (click)="collectTamplateValues()">
-      <mat-icon>add</mat-icon>
+      <img src="./assets/icons/add.svg" alt="add-svg"/>
     </button>
     <button mat-fab class="btn-actions btn-right" *ngIf="submitted"
             (click)="createTemplate()">
