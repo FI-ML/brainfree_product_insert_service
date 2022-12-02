@@ -35,7 +35,7 @@
                    [matAutocomplete]="auto">
             <mat-autocomplete #auto="matAutocomplete">
               <mat-option *ngFor="let cat of filteredCategories | async" [value]="cat">
-                {{'HOME.'+cat.toUpperCase() | translate}}
+                {{'HOME.' + cat.toUpperCase() | translate}}
               </mat-option>
             </mat-autocomplete>
             <mat-hint align="end"> {{'HOME.SEARCH FUNCTION' | translate}}</mat-hint>
@@ -79,7 +79,7 @@
     </button>
     <button mat-fab class="btn-actions btn-right" *ngIf="submitted"
             (click)="createTemplate()">
-      <mat-icon>check</mat-icon>
+      <img src="./assets/icons/done.svg" alt="done-svg"/>
     </button>
   </mat-card-actions>
 </mat-card>
